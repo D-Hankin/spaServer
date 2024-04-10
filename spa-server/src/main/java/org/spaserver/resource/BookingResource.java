@@ -51,7 +51,6 @@ public class BookingResource {
     // @Consumes(MediaType.TEXT_PLAIN)
     @Path("/find-sessions")
     public Response checkSessionAvailability(@HeaderParam("date") String date) {
-        System.out.println(date);
         return bookingService.findSessionsByDate(date);
     }
 
