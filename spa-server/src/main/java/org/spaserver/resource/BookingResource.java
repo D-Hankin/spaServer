@@ -13,6 +13,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -41,6 +42,7 @@ public class BookingResource {
     @APIResponse(responseCode = "500", description = "Internal Server Error.")
     @Path("/create-booking")
     public Response createBooking(@RequestBody Booking booking) {
+        System.out.println("here!!!!");
         return bookingService.createNewBooking(booking);
     }
 
@@ -48,9 +50,9 @@ public class BookingResource {
     @Operation(summary = "Check session availability", description = "Checks session availability by date, returns a list of UNAVAILABLE sessions")
     @APIResponse(responseCode = "404", description = "Error: No response from database.")
     @APIResponse(responseCode = "200", description = "Booking found")
-    // @Consumes(MediaType.TEXT_PLAIN)
-    @Path("/find-sessions")
-    public Response checkSessionAvailability(@HeaderParam("date") String date) {
+    @Path("/find-sessions/{date}")
+    public Response checkSessionAvailability(@PathParam("date") String date) {
+        System.out.println(date);
         return bookingService.findSessionsByDate(date);
     }
 
