@@ -48,6 +48,7 @@ public class BookingResource {
     @Operation(summary = "Check session availability", description = "Checks session availability by date, returns a list of UNAVAILABLE sessions")
     @APIResponse(responseCode = "404", description = "Error: No response from database.")
     @APIResponse(responseCode = "200", description = "Booking found")
+    // @Consumes(MediaType.TEXT_PLAIN)
     @Path("/find-sessions")
     public Response checkSessionAvailability(@HeaderParam("date") String date) {
         System.out.println(date);
