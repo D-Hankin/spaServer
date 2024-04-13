@@ -52,19 +52,14 @@ public class BookingService {
     }
 
     public Response findSessionsByDate(String date) {
-
-        System.out.println(date);
         List<Booking> bookedSessionObjects = em.createQuery("SELECT b FROM Booking b WHERE b.date = :date", Booking.class)
                                         .setParameter("date", date)
                                         .getResultList();
         List<String[]> bookedSessions = new ArrayList<>();
-        System.out.println(bookedSessionObjects);
         for (Booking booking : bookedSessionObjects) {
             String[] bookedObject = {booking.getSession(), booking.getSessionType()};
             bookedSessions.add(bookedObject);
         } 
-        System.out.println(bookedSessions);
-
         return Response.ok(bookedSessions).build();
     }
 

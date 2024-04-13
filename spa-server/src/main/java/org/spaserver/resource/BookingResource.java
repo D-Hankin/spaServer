@@ -10,7 +10,6 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
-import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
@@ -30,8 +29,8 @@ public class BookingResource {
     @Operation(summary = "Find a booking", description = "Enter a booking reference (String) to retrieve a booking (JSON object)")
     @APIResponse(responseCode = "404", description = "No booking found")
     @APIResponse(responseCode = "200", description = "Booking found")
-    @Path("/find-booking")
-    public Response findBooking(@HeaderParam("bookingId") Long bookingId) {
+    @Path("/find-booking/{bookingId}")
+    public Response findBooking(@PathParam("bookingId") Long bookingId) {
         return bookingService.findBookingbyId(bookingId);
     }
 
@@ -42,7 +41,6 @@ public class BookingResource {
     @APIResponse(responseCode = "500", description = "Internal Server Error.")
     @Path("/create-booking")
     public Response createBooking(@RequestBody Booking booking) {
-        System.out.println("here!!!!");
         return bookingService.createNewBooking(booking);
     }
 
@@ -52,7 +50,6 @@ public class BookingResource {
     @APIResponse(responseCode = "200", description = "Booking found")
     @Path("/find-sessions/{date}")
     public Response checkSessionAvailability(@PathParam("date") String date) {
-        System.out.println(date);
         return bookingService.findSessionsByDate(date);
     }
 
@@ -60,8 +57,8 @@ public class BookingResource {
     @Operation(summary = "Cancel a booking", description = "Cancel a booking using the booking ID.")
     @APIResponse(responseCode = "404", description = "No booking found.")
     @APIResponse(responseCode = "200", description = "Booking successfully cancelled")
-    @Path("/cancel-booking")
-    public Response cancelBooking(@HeaderParam("BookingId") String bookingId) {
+    @Path("/cancel-booking/{bookingId}")
+    public Response cancelBooking(@PathParam("bookingId") String bookingId) {
         return bookingService.cancelBookingByBookingId(bookingId);
     }
 
