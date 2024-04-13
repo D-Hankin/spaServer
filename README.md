@@ -1,6 +1,6 @@
-# Quarkus Project
+# The Pit of Despair Spa and Relaxtion Center - Server
 
-This project is a Quarkus/Jakarta EE backend server developed by [David Hankin](https://github.com/D-Hankin) as a part of a school project for Java Developer Course at Jönköping University. The server is intended to serve as the backend for the accompanying SPA client project available at [spaClient](https://github.com/D-Hankin/spaClient).
+This project is a Quarkus/Jakarta EE backend server developed by [David Hankin](https://github.com/D-Hankin) as a part of a school project for Java Developer Course at Jönköping University. The server is intended to serve as the backend for the accompanying SPA (TS/React) client project available at [spaClient](https://github.com/D-Hankin/spaClient).
 
 ## Running the Server
 
