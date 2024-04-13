@@ -7,7 +7,7 @@ This project is a Quarkus/Jakarta EE backend server developed by [David Hankin](
 To clone this repository to your local machine, you can use the following command:
 
 ```bash
-git clone https://github.com/D-Hankin/spaServer.git
+git clone git@github.com:D-Hankin/spaServer.git
 ```
 
 ## Running the Server
